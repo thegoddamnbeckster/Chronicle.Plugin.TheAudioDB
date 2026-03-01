@@ -1,0 +1,10 @@
+﻿{
+  "plugin_id": "chronicle.plugin.theaudiodb",
+  "name": "TheAudioDB",
+  "version": "1.0.0",
+  "author": "thegoddamnbeckster",
+  "description": "Chronicle metadata plugin for TheAudioDB.",
+  "entry_type": "Chronicle.Plugin.TheAudioDB.TheAudioDBPlugin",
+  "min_chronicle_version": "0.6.0",
+  "supported_media_types": ["music", "album", "artist"]
+}
