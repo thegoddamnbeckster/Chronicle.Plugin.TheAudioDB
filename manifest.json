@@ -1,10 +1,31 @@
-﻿{
-  "plugin_id": "chronicle.plugin.theaudiodb",
-  "name": "TheAudioDB",
-  "version": "1.0.0",
-  "author": "thegoddamnbeckster",
-  "description": "Chronicle metadata plugin for TheAudioDB.",
-  "entry_type": "Chronicle.Plugin.TheAudioDB.TheAudioDBPlugin",
-  "min_chronicle_version": "0.6.0",
-  "supported_media_types": ["music", "album", "artist"]
+{
+  "plugin_id":   "chronicle.plugin.theaudiodb",
+  "name":        "TheAudioDB",
+  "version":     "1.0.0",
+  "author":      "Chronicle Contributors",
+  "description": "Music metadata from TheAudioDB: artist biographies and artwork (thumbs, logos, banners, clear art, cut-outs, fan art), album descriptions and artwork (CD art, 3D cases, back covers), scores, genres, moods and styles, and track details. Works with the free key; a premium key lifts the limits. A fourth source beside MusicBrainz, Last.fm and Deezer, and independent of them.",
+  "min_chronicle_version": "0.7.0",
+  "entry_type":  "Chronicle.Plugin.TheAudioDB.TheAudioDbMetadataProvider",
+  "iconUrl":     "https://www.theaudiodb.com/favicon.ico",
+  "brandColorLight": "#1B6AA5",
+  "brandColorDark":  "#5AB0F0",
+  "fixMatchHint": "Enter a TheAudioDB id with its kind (artist:111239, album:2109615, track:32724180), a theaudiodb.com artist, album or track URL, or artist-mb:, album-mb: or track-mb: followed by a MusicBrainz artist id, release-group id or recording id.",
+  "supported_media_types": ["music"],
+  "background_tasks": [
+    {
+      "task_id":         "fetch-missing-metadata",
+      "display_name":    "Fetch Missing Music Metadata",
+      "description":     "Looks up TheAudioDB metadata for artists, albums and tracks that have not been enriched by TheAudioDB yet. Paced at the free key's limit, so a large library takes many hours the first time.",
+      "default_cron":    "35 5 * * *",
+      "default_enabled": true
+    },
+    {
+      "task_id":         "resync-all-metadata",
+      "display_name":    "Re-sync All Music Metadata",
+      "description":     "Re-fetches all TheAudioDB metadata to pick up new artwork and corrected text. Very slow on a large library.",
+      "default_cron":    "35 3 * * 3",
+      "default_enabled": false
+    }
+  ],
+  "settings": []
 }
