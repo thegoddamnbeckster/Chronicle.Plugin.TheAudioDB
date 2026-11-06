@@ -29,7 +29,7 @@ public sealed class TheAudioDbMetadataProvider : IMetadataProvider, IDisposable
 {
     public string PluginId => "chronicle.plugin.theaudiodb";
     public string Name     => "TheAudioDB";
-    public string Version  => "1.0.0";
+    public string Version  => System.Reflection.CustomAttributeExtensions.GetCustomAttribute<System.Reflection.AssemblyInformationalVersionAttribute>(typeof(TheAudioDbMetadataProvider).Assembly)?.InformationalVersion.Split('+')[0] ?? "1.0.0";
     public string Author   => "Chronicle Contributors";
 
     private static readonly ILogger Log = Serilog.Log.ForContext<TheAudioDbMetadataProvider>();
