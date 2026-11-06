@@ -1,7 +1,7 @@
 {
   "plugin_id":   "chronicle.plugin.theaudiodb",
   "name":        "TheAudioDB",
-  "version":     "1.0.0",
+  "version":     "1.0.1",
   "author":      "Chronicle Contributors",
   "description": "Music metadata from TheAudioDB: artist biographies and artwork (thumbs, logos, banners, clear art, cut-outs, fan art), album descriptions and artwork (CD art, 3D cases, back covers), scores, genres, moods and styles, and track details. Works with the free key; a premium key lifts the limits. A fourth source beside MusicBrainz, Last.fm and Deezer, and independent of them.",
   "min_chronicle_version": "0.7.0",

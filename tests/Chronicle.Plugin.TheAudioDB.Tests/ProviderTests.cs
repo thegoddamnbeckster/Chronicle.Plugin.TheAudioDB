@@ -539,7 +539,7 @@ public class ProviderTests
         Assert.Equal("DE", provider.Current.LanguageSuffix);
         Assert.Equal(ImageSize.Medium, provider.Current.Size);
         Assert.Equal(5, provider.Current.MinimumRatingVotes);
-        Assert.Equal("Chronicle-TheAudioDB/1.0.0", provider.ConfiguredUserAgent);
+        Assert.Equal($"Chronicle-TheAudioDB/{provider.Version}", provider.ConfiguredUserAgent);
     }
 
     [Fact]
