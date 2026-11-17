@@ -63,6 +63,7 @@ public class ClientTests
         var ex = await Assert.ThrowsAsync<HttpRequestException>(() => client.ArtistAsync("1", default));
 
         Assert.Equal(HttpStatusCode.TooManyRequests, ex.StatusCode);
+        Assert.Equal(TimeSpan.FromSeconds(60), ex.Data["RetryAfter"]);   // what TheAudioDB asked for, so Chronicle's queue holds the item that long
         Assert.Single(fake.Requests);                      // no retry
         Assert.DoesNotContain(delays, d => d >= TimeSpan.FromSeconds(30));
     }

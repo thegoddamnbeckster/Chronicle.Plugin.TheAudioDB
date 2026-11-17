@@ -131,7 +131,8 @@ internal sealed class TheAudioDbClient : IDisposable
                     continue;
                 }
                 throw new HttpRequestException(
-                    $"TheAudioDB is rate limiting requests (retry in about {wait.TotalSeconds:0}s)", null, HttpStatusCode.TooManyRequests);
+                    $"TheAudioDB is rate limiting requests (retry in about {wait.TotalSeconds:0}s)", null, HttpStatusCode.TooManyRequests)
+                    { Data = { ["RetryAfter"] = wait } };
             }
 
             if (!response.IsSuccessStatusCode)
